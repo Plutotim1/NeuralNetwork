@@ -7,32 +7,47 @@ class NeuralNetwork:
         self.layer_count = layer_count
         if len(layer_count) <= 1:
             print("error: less than two layers")
-            return;
+            return
 
+        self.weights = [
+            np.matrix([
+                [(np.random.rand() - 0.5) * 2 for k in range(0, layer_count[i])]
+                for j in range(0, layer_count[i + 1])
+            ])
+            for i in range(0, len(layer_count) - 1)
+        ]
+
+        '''
         self.weights = [
             np.random.rand(
                 layer_count[i + 1],
                 layer_count[i])
             for i in range(0, len(layer_count) - 1)]
+        '''
+
+        self.biases = [
+            np.matrix([
+            [(np.random.rand() - 0.5) * 2]
+            for j in range(0, layer_count[i])])
+            for i in range(1, len(layer_count))
+        ]
         
+        '''
         self.biases = [
             np.random.rand(
                 layer_count[i],
                 1
             ) for i in range(1, len(layer_count))
         ]
-
-    def list_to_vector(self, l):
-        l1  = [[l[i]] for i in range(0, len(l))]
-        m = np.matrix(l1)
-        return m
+        '''
+        
 
 
     def calculate_result(self, input):
-        if len(input) != len(self.weights[0][0]):
+        if len(input) != self.layer_count[0]:
             return [-1 for i in range(0, self.layer_count[-1])]
 
-        prev = self.list_to_vector(input);
+        prev = help.list_to_vector(input);
 
         for i in range(0, len(self.layer_count) - 1):
             
@@ -59,8 +74,9 @@ class NeuralNetwork:
 
 def main():
     nn = NeuralNetwork([2, 3, 2])
+    nn.print()
+    print("**********************************************************************")
     print(nn.calculate_result([0.5, 1]))
-    #nn.print()
 
  
 
