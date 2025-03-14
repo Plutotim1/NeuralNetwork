@@ -3,7 +3,7 @@ import help
 
 
 class NeuralNetwork:
-    def __init__(self, layer_count):
+    def __init__(self, layer_count: list):
         self.layer_count = layer_count
         if len(layer_count) <= 1:
             print("error: less than two layers")
@@ -43,7 +43,7 @@ class NeuralNetwork:
         
 
 
-    def calculate_result(self, input):
+    def calculate_result(self, input: list):
         if len(input) != self.layer_count[0]:
             return [-1 for i in range(0, self.layer_count[-1])]
 
@@ -53,10 +53,10 @@ class NeuralNetwork:
             
 
             temp = (self.weights[i] * prev) + self.biases[i]
-            print(temp)
+            #print(temp)
             prev = help.sigmoid(temp)
-            print(prev)
-            print("SEPERATOR_________________________________________________________________________________")
+            #print(prev)
+            #print("SEPERATOR_________________________________________________________________________________")
 
         return prev;
             
@@ -73,10 +73,9 @@ class NeuralNetwork:
 
 
 def main():
-    nn = NeuralNetwork([2, 3, 2])
-    nn.print()
-    print("**********************************************************************")
-    print(nn.calculate_result([0.5, 1]))
+    nn = NeuralNetwork([1, 2, 1])
+    
+
 
  
 
