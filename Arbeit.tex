@@ -4,6 +4,7 @@
 \usetikzlibrary{decorations.markings}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath}
+\usepackage{pgfplots}
 
 \begin{document}
 
@@ -65,8 +66,23 @@ allgemein:
 \[z_n^m = \sigma(a_n^m)\]
 
 \[\sigma(x) = \frac{1}{1 + e^{-t}}\]
+\resizebox{300pt}{200pt}{
+\begin{tikzpicture}[>=stealth]
+    \begin{axis}[
+        xmin=-10,xmax=10,
+        ymin=-0.5,ymax=1.5,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=->,
+        xlabel={$x$},
+        ylabel={$y$},
+    ]
+    \addplot[no marks, blue] expression[domain=-10:10, samples=100]{1 / (1+ exp(-x))}
+    node[];
 
-\[W_{max} = [-1;1]\]
+    \end{axis}
+\end{tikzpicture}
+}
 
 
 \section{Matrizendarstellung}
