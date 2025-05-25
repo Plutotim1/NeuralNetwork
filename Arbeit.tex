@@ -68,7 +68,7 @@
 \subsection{Formeln}
 \[ z_0^1 = a_0^0 \cdot \textcolor{OliveGreen}{w_{0,0}} + a_1^0 \cdot \textcolor{OliveGreen}{w_{1,0}} + \textcolor{blue}{b^1} \]
 allgemein:
-\[  z_0^1 = \textcolor{blue}{b^1} + \sum_{j=0}^{n} a_j^0 \cdot \textcolor{OliveGreen}{w_{j,0}}  \]
+\[  z_0^1 = \textcolor{blue}{b^1} + \sum_{j=0}^{n^1} a_j^0 \cdot \textcolor{OliveGreen}{w_{j,0}}  \]
 \[a_j^l = \sigma(z_j^l)\]
 \[\sigma(x) = \frac{1}{1 + e^{-x}}\]
 
@@ -162,9 +162,9 @@ W^l = \begin{pmatrix}
 
 \subsection{Fehler($\delta$)}
 -Zwischenwert zur leichteren Berechnung des Gradienten
-\[ \delta_j^l = \frac{\partial E_j}{\partial z_j^l} 
+\[ \delta_j^l = \frac{\partial E}{\partial z_j^l} 
 \kern 40pt
- \frac{\partial E}{\partial w_{j,i}^l} = \delta_j^l \cdot a_j^{l-1}
+ \frac{\partial E}{\partial w_{j,i}^l} = \delta_i^l \cdot a_j^{l-1}
 \kern 40pt
 \frac{\partial E}{\partial b_j^l} = \delta_j^l \]
 
@@ -177,9 +177,23 @@ Einsetzen der Ableitungen:
 
 Berechnung des Fehlers des vorletzten Layers:
 
-\[ \delta_j^{L-1}  = \frac{\partial E}{\partial z_j^{L-1}}\]
-\[ = \frac{\partial E}{\partial a_j^{L-1}} \cdot \frac{\partial a_j^{L-1}}{\partial z_j^{L-1}}
-= \frac{\partial E}{\partial a_j^{L-1}} \cdot \sigma^{\prime}(z_j^{L-1}) \]
+\[ \delta_j^{L-1}  = \frac{\partial E}{\partial z_j^{L-1}} 
+= \frac{\partial E}{\partial a_j^{L-1}} \cdot \frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} \]
 
+\[ \frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} = \sigma^{\prime}(z_j^{L-1}) \]
+
+\[ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i 
+= 0}^{n^L} \frac{\partial E}{\partial z_i^L} \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}}
+= \sum_{i = 0}^{n^L} \delta_i^L \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}} \]
+
+\[\frac{\partial z_i^L}{\partial a_j^{L-1}}
+= \frac{\partial}{\partial a_j^{L-1}} (\sum_{p = 0}^{n^L} a_p^{L-1} \cdot w_{p,i}^L + b_p^L) = w_{j, i}^L \]
+
+\[ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i = 0}^{n^L} \delta_j^L \cdot w_{j,i}^L \]
+
+Zusammenführen der Einzelergebnisse:
+\[ \delta_j^{l} = [\sum_{i = 0}^{n^l+1} \delta_j^l+1 \cdot w_{j,i}^l+1] \cdot \sigma^{\prime}(z_j^{l}) \]
+Allgemein:
+\[ \delta_j^{l} = [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] \cdot \sigma^{\prime}(z_j^{l}) \]
 
 \end{document}
