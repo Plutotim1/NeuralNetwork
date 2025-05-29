@@ -1,10 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1748180850.2244 "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" "Arbeit.pdf" "Arbeit" 1748180850.78923 0
+["pdflatex"] 1748520789.4002 "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" "Arbeit.pdf" "Arbeit" 1748520790.01853 0
   "/etc/texmf/web2c/texmf.cnf" 1743440954.67581 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" 1748180850.13553 6920 89ce41d20f12cf348473f69cf8b813ec ""
+  "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" 1748520789.30971 8631 6d1125fd0f8b3e831e61d869f4a06f09 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -17,6 +18,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
@@ -164,8 +166,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743441093.4405 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743445835 7277396 277211c3de79cc1d3a1b81fe72cca3d4 ""
-  "Arbeit.aux" 1748180850.74852 887 58b69f76dd867e44508c2b7f0dbf6f10 "pdflatex"
-  "Arbeit.tex" 1748180850.13553 6920 89ce41d20f12cf348473f69cf8b813ec ""
+  "Arbeit.aux" 1748520789.97471 1485 b1000e6bcd066894bdf1d08647af1349 "pdflatex"
+  "Arbeit.tex" 1748520789.30971 8631 6d1125fd0f8b3e831e61d869f4a06f09 ""
   (generated)
   "Arbeit.aux"
   "Arbeit.log"

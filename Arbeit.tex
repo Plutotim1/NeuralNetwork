@@ -126,18 +126,25 @@ W^l = \begin{pmatrix}
 \[ \frac{dE_j}{da_{j}^L}  = (a_j^L - y_j) \]
 
 
+\subsection{Lernvorgang}
+Anpassen der Gewichts- und BiasNeuronen:
+
+\[ w^l = w^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial C^k}{\partial w^l} \]
+$\eta$ = Lernrate \kern 20pt $N$ = Anzahl der Trainingsbeispiele \kern 20pt $k$ = Trainingsbeispiel 
+
+
 \subsection{Ableitung der sigmoid Funktion}
-\[\sigma(x) = \frac{1}{1 + e^{-x}}\]
-\[ \frac{d}{dx}\sigma(x) = \frac{
+\[ \textcolor{blue}{ \sigma(x) = \frac{1}{1 + e^{-x}} } \]
+\[ \textcolor{red}{ \frac{d}{dx}\sigma(x) } = \frac{
 0( \cdot 1 + e^{-x}) - 1 \cdot e^{-x} \cdot -1
 }{
     (1 + e^{-x})^2
-} = \frac{e^{-x}}{(1 + e^{-x})^2}
+} = \frac{e^{-x}}{(1 + e^{-x})^2} 
 = \frac{1 + e^{-x} - 1}{(1 + e^{-x})^2} \]
 \[ =\frac{1 + e^{-x}}{(1 + e^{-x})^2} - \frac{1}{(1 + e^{-x})^2} 
 = \frac{1}{1 + e^{-x}} - \frac{1}{(1 + e^{-x})^2} \]
 \[ = \frac{1}{1 + e^{-x}} \cdot (1 - \frac{1}{1 + e^{-x}}) 
-= \sigma(x) \cdot (1 - \sigma(x)) \]
+= \textcolor{red}{ \sigma(x) \cdot (1 - \sigma(x)) } \]
 
 \resizebox{280pt}{210pt}{
 \begin{tikzpicture}[>=stealth]
@@ -178,22 +185,65 @@ Einsetzen der Ableitungen:
 Berechnung des Fehlers des vorletzten Layers:
 
 \[ \delta_j^{L-1}  = \frac{\partial E}{\partial z_j^{L-1}} 
-= \frac{\partial E}{\partial a_j^{L-1}} \cdot \frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} \]
+= \textcolor{OliveGreen}{\frac{\partial E}{\partial a_j^{L-1}}} \cdot \textcolor{blue}{\frac{\partial a_j^{L-1}}{\partial z_j^{L-1}}} \]
 
-\[ \frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} = \sigma^{\prime}(z_j^{L-1}) \]
+\[ \textcolor{blue}{\frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} = \sigma^{\prime}(z_j^{L-1})} \]
 
-\[ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i 
-= 0}^{n^L} \frac{\partial E}{\partial z_i^L} \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}}
-= \sum_{i = 0}^{n^L} \delta_i^L \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}} \]
+\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i 
+= 0}^{n^L} \frac{\partial E}{\partial z_i^L} \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}} }
+= \sum_{i = 0}^{n^L} \delta_i^L \cdot \textcolor{red}{ \frac{\partial z_i^L}{\partial a_j^{L-1}} } \]
 
-\[\frac{\partial z_i^L}{\partial a_j^{L-1}}
-= \frac{\partial}{\partial a_j^{L-1}} (\sum_{p = 0}^{n^L} a_p^{L-1} \cdot w_{p,i}^L + b_p^L) = w_{j, i}^L \]
+\[ \textcolor{red}{ \frac{\partial z_i^L}{\partial a_j^{L-1}}
+= \frac{\partial}{\partial a_j^{L-1}} (\sum_{p = 0}^{n^L} a_p^{L-1} \cdot w_{p,i}^L + b_p^L) = w_{j, i}^L } \]
 
-\[ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i = 0}^{n^L} \delta_j^L \cdot w_{j,i}^L \]
+\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} } = \sum_{i = 0}^{n^L} \delta_j^L \cdot \textcolor{red}{ w_{j,i}^L } \]
 
 Zusammenführen der Einzelergebnisse:
-\[ \delta_j^{l} = [\sum_{i = 0}^{n^l+1} \delta_j^l+1 \cdot w_{j,i}^l+1] \cdot \sigma^{\prime}(z_j^{l}) \]
+\[ \delta_j^{L-1} = \textcolor{OliveGreen}{[\sum_{i = 0}^{n^{L}} \delta_j^{L} \cdot w_{j,i}^{L} } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{L-1}) } \]
 Allgemein:
-\[ \delta_j^{l} = [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] \cdot \sigma^{\prime}(z_j^{l}) \]
+\[ \delta_j^{l} = \textcolor{OliveGreen}{ [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
+
+
+\subsection{Berechnung des Fehlers als Vektor}
+
+
+\subsubsection{Fehler des letzten Layers}
+\[ \delta_j^L = (a_j^L - y_j) \cdot \sigma^{\prime} (z_j^L)  \]
+
+\[ \vec{\delta^L} = \left( \begin{array}{c}
+     \delta_0^L \\ \delta_1^L \\ ... \\ \delta_j^L 
+\end{array} \right)
+\kern 30pt
+\vec{y} = \left( \begin{array} {c}
+    y_0 \\ y_1 \\ ... \\ y_j
+\end{array} \right) 
+\kern 30pt
+\vec{a^L} = \left(\begin{array}{c}
+    a_0^L \\ a_1^L \\ ... \\ a_j^L
+\end{array} \right) 
+\kern 30pt
+\vec{z^L} = \left(\begin{array}{c}
+    z_0^L \\ z_1^L \\ ... \\ z_j^L
+\end{array} \right) 
+\]
+
+\[ \vec{\delta^L} = (\vec{a^L} - \vec{y^L}) \odot \sigma^{\prime}(\vec{z^L}) \]
+
+
+\subsubsection{Definition $\odot$}
+\[ \left(\begin{array}{c}
+    a_0 \\ a_1 \\ a_2 \\ a_3
+\end{array}\right)
+\odot \left(\begin{array}{c}
+    b_0 \\ b_1 \\ b_2 \\ b_3
+\end{array}\right) 
+= \left(\begin{array}{c}
+    a_0 \cdot b_0 \\ a_1 \cdot b_1 \\ a_2 \cdot b_2 \\ a_3 \cdot b_3
+\end{array}\right) \]
+
+
+\subsubsection{Fehler eines beliebigen Layers}
+\[ \delta_j^{l} = [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] \cdot \sigma^{\prime}(z_j^{l})  \]
+
 
 \end{document}
