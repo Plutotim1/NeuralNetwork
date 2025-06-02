@@ -196,15 +196,15 @@ Berechnung des Fehlers des vorletzten Layers:
 \[ \textcolor{red}{ \frac{\partial z_i^L}{\partial a_j^{L-1}}
 = \frac{\partial}{\partial a_j^{L-1}} (\sum_{p = 0}^{n^L} a_p^{L-1} \cdot w_{p,i}^L + b_p^L) = w_{j, i}^L } \]
 
-\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} } = \sum_{i = 0}^{n^L} \delta_j^L \cdot \textcolor{red}{ w_{j,i}^L } \]
+\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} } = \sum_{i = 0}^{n^L} \delta_i^L \cdot \textcolor{red}{ w_{j,i}^L } \]
 
 Zusammenführen der Einzelergebnisse:
-\[ \delta_j^{L-1} = \textcolor{OliveGreen}{[\sum_{i = 0}^{n^{L}} \delta_j^{L} \cdot w_{j,i}^{L} } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{L-1}) } \]
+\[ \delta_j^{L-1} = \textcolor{OliveGreen}{[\sum_{i = 0}^{n^{L}} \delta_i^{L} \cdot w_{j,i}^{L} }] \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{L-1}) } \]
 Allgemein:
-\[ \delta_j^{l} = \textcolor{OliveGreen}{ [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
+\[ \delta_j^{l} = \textcolor{OliveGreen}{ [\sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot w_{j,i}^{l+1}] } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
 
 
-\subsection{Berechnung des Fehlers als Vektor}
+\subsection{Berechnung des Fehlers mit Matrizen}
 
 
 \subsubsection{Fehler des letzten Layers}
@@ -241,9 +241,30 @@ Allgemein:
     a_0 \cdot b_0 \\ a_1 \cdot b_1 \\ a_2 \cdot b_2 \\ a_3 \cdot b_3
 \end{array}\right) \]
 
-
+\pagebreak
 \subsubsection{Fehler eines beliebigen Layers}
-\[ \delta_j^{l} = [\sum_{i = 0}^{n^{l+1}} \delta_j^{l+1} \cdot w_{j,i}^{l+1}] \cdot \sigma^{\prime}(z_j^{l})  \]
+\[ \delta_j^{l} = [\sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot w_{j,i}^{l+1}] \cdot \sigma^{\prime}(z_j^{l})  \]
+
+\[ \delta_0^l = (\delta_0^{l+1} \cdot \textcolor{red}{w_{0,0}^{l+1}} + \delta_1^{l+1} \cdot \textcolor{red}{w_{0,1}^{l+1}}
+ + \textcolor{red}{...} + \delta_i^{l+1} \cdot \textcolor{red}{w_{0,i}^{l+1}}) \cdot \sigma^{\prime}(z_0^{l}) \]
+
+ \[ \delta_1^l = (\delta_0^{l+1} \cdot \textcolor{blue}{w_{1,0}^{l+1}} + \delta_1^{l+1} \cdot \textcolor{blue}{w_{1,1}^{l+1}}
+ + \textcolor{blue}{...} + \delta_i^{l+1} \cdot \textcolor{blue}{w_{1,i}^{l+1}}) \cdot \sigma^{\prime}(z_1^{l}) \]
+
+\[ W^{l+1} = \begin{pmatrix}
+    \textcolor{red}{w_{0,0}^{l+1}} & \textcolor{blue}{w_{1,0}^{l+1}} & ... & w_{j,0}^{l+1} \\
+    \textcolor{red}{w_{0,1}^{l+1}} & \textcolor{blue}{w_{1,1}^{l+1}} & ... & w_{j,1}^{l+1} \\
+    \textcolor{red}{...} & \textcolor{blue}{...} & ... & ... \\
+    \textcolor{red}{w_{0,i}^{l+1}} & \textcolor{blue}{w_{1,i}^{l+1}} & ... & w_{j,i}^{l+1}
+\end{pmatrix} 
+\kern 40pt
+{(W^{l+1})}^T = \begin{pmatrix}
+    \textcolor{red}{w_{0,0}^{l+1}} & \textcolor{red}{w_{0,1}^{l+1}} & \textcolor{red}{...} & \textcolor{red}{w_{0,i}^{l+1}} \\
+    \textcolor{blue}{w_{1,0}^{l+1}} & \textcolor{blue}{w_{1,1}^{l+1}} & \textcolor{blue}{...} & \textcolor{blue}{w_{1,i}^{l+1}} \\
+    ... & ... & ... & ... \\
+    w_{j,0}^{l+1} & w_{j,1}^{l+1} & ... & w_{j,i}^{l+1} 
+\end{pmatrix} \]
+\[ \Rightarrow \vec{\delta^l} = \vec{\delta^{l+1}} \cdot {(W^l)}^T \odot \sigma^{\prime}(\vec{z^l}) \]
 
 
 \end{document}
