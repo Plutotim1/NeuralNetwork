@@ -5,6 +5,16 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath}
 \usepackage{pgfplots}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    pdftitle={Matrizen in Neuronalen Netzwerken},
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
 
 \begin{document}
 
@@ -12,6 +22,8 @@
 \author{Tim Zollner}
 \date{17.02.2025}
 \maketitle
+
+
 
 \section{Feed-Forward}
 \subsection{Grafik}
@@ -41,10 +53,10 @@
         \draw[->] (z00) -- (a00) node[midway, above] {$\sigma$};
         \draw[->] (z01) -- (a01) node[midway, above] {$\sigma$};
 
-        \draw[->] (a00) -- (z10) node[pos=0.25, above] {$w_{0,0}$};
-        \draw[->] (a00) -- (z11) node[pos=0.25, above, sloped] {$w_{0,1}$};
-        \draw[->] (a01) -- (z10) node[pos=0.25, above, sloped] {$w_{1,0}$};
-        \draw[->] (a01) -- (z11) node[pos=0.25, above] {$w_{1,1}$};
+        \draw[->] (a00) -- (z10) node[pos=0.25, above] {$w_{0,0}^1$};
+        \draw[->] (a00) -- (z11) node[pos=0.25, above, sloped] {$w_{0,1}^1$};
+        \draw[->] (a01) -- (z10) node[pos=0.25, above, sloped] {$w_{1,0}^1$};
+        \draw[->] (a01) -- (z11) node[pos=0.25, above] {$w_{1,1}^1$};
 
         \draw[->] (b10) -- (z10);
         \draw[->] (b11) -- (z11);
@@ -53,8 +65,8 @@
         \draw[->] (z11) -- (a11) node[midway, above] {$\sigma$};
 
 
-        \draw[->] (a10) -- (z20) node[pos=0.25, above, sloped] {$w_{0,0}$};
-        \draw[->] (a11) -- (z20) node[pos=0.25, above, sloped] {$w_{1,0}$};
+        \draw[->] (a10) -- (z20) node[pos=0.25, above, sloped] {$w_{0,0}^1$};
+        \draw[->] (a11) -- (z20) node[pos=0.25, above, sloped] {$w_{1,0}^1$};
 
         \draw[->] (b20) --(z20);
 
@@ -74,7 +86,7 @@ allgemein:
 
 
 \pagebreak
-\subsection{Matrizendarstellung}
+\subsection{Berechnung als Vektor}
 \[ \vec{z}^l = \left(\begin{array}{c} z_0^l \\ z_1^l \\ ... \\ z_j^l \end{array}\right) 
 \kern 30pt
 \vec{a}^l = \left(\begin{array}{c} a_0^l \\ a_1^l \\ ... \\ a_j^l \end{array}\right) 
@@ -129,7 +141,7 @@ W^l = \begin{pmatrix}
 \subsection{Lernvorgang}
 Anpassen der Gewichts- und BiasNeuronen:
 
-\[ w^l = w^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial C^k}{\partial w^l} \]
+\[ w^l \rightarrow w^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial C^k}{\partial w^l} \]
 $\eta$ = Lernrate \kern 20pt $N$ = Anzahl der Trainingsbeispiele \kern 20pt $k$ = Trainingsbeispiel 
 
 
@@ -204,7 +216,7 @@ Allgemein:
 \[ \delta_j^{l} = \textcolor{OliveGreen}{ [\sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot w_{j,i}^{l+1}] } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
 
 
-\subsection{Berechnung des Fehlers mit Matrizen}
+\subsection{Berechnung des Fehlers als vektor}
 
 
 \subsubsection{Fehler des letzten Layers}
@@ -264,7 +276,101 @@ Allgemein:
     ... & ... & ... & ... \\
     w_{j,0}^{l+1} & w_{j,1}^{l+1} & ... & w_{j,i}^{l+1} 
 \end{pmatrix} \]
-\[ \Rightarrow \vec{\delta^l} = \vec{\delta^{l+1}} \cdot {(W^l)}^T \odot \sigma^{\prime}(\vec{z^l}) \]
+\[ \Rightarrow \vec{\delta^l} = \vec{\delta^{l+1}} \cdot {(W^{l+1})}^T \odot \sigma^{\prime}(\vec{z^l}) \]
 
+
+ \subsection{Feed-Forward Berechnung als Matriz}
+
+ \[ A^l = 
+ \begin{pmatrix}
+    a_0^{l,0} & a_0^{l,1} & ... & a_0^{l,k} \\
+    a_1^{l,0} & a_1^{l,1} & ... & a_1^{l,k} \\
+    ... & ... & ... & ... \\
+    a_j^{l,0} & a_j^{l,1} & ... & a_j^{l,k} \\
+ \end{pmatrix} \]
+
+
+
+ \[ A^l = \sigma (A^{[l-1]} \cdot W^l + \vec{b^l}) \]
+
+Erklärung Matrix $+$ vektor
+ \[ \begin{pmatrix}
+    a_0 & a_1 & a_2 \\
+    b_0 & b_1 & b_2 \\
+    c_0 & c_1 & c_2
+ \end{pmatrix} 
+ + \begin{pmatrix}
+    d \\ e \\ f
+ \end{pmatrix} 
+ = \begin{pmatrix}
+    a_0 + d & a_1 + d & a_2 + d\\
+    b_0 + e & b_1 + e & b_2 + e \\
+    c_0 + f & c_1 + f & c_2 + f
+ \end{pmatrix}\]
+
+
+ \subsection{Backpropagation als Matriz}
+
+ \subsubsection{Fehlerberechnung}
+
+ \[ [\delta^l] =
+ \begin{pmatrix}
+    \delta_0^{l,0} & \delta_0^{l,1} & ... & \delta_0^{l,k} \\
+    \delta_1^{l,0} & \delta_1^{l,1} & ... & \delta_1^{l,k} \\
+    ... & ... & ... & ... \\
+    \delta_j^{l,0} & \delta_j^{l,1} & ... & \delta_j^{l,k} \\
+ \end{pmatrix} \]
+
+  \[ [\delta^L] = (A^L - Y^L) \odot \sigma^{\prime}(Z^L) \]
+ \[ [\delta^l] = (W^{l+1})^T \cdot [\delta^{l+1}] \odot \sigma^{\prime}(Z^L) \]
+
+ \[ \Rightarrow  \frac{\partial E}{B^l} = [\delta^l]\]
+
+
+\pagebreak
+
+
+ \subsubsection{Berechnung der Gradienten der Gewichte}
+
+ \[ [\delta^l] =
+ \begin{pmatrix}
+    \textcolor{blue}{\delta_0^{l,0}} & \textcolor{blue}{\delta_0^{l,1}} & \textcolor{blue}{...} & \textcolor{blue}{\delta_0^{l,k}} \\
+    \delta_1^{l,0} & \delta_1^{l,1} & ... & \delta_1^{l,k} \\
+    ... & ... & ... & ... \\
+    \delta_j^{l,0} & \delta_j^{l,1} & ... & \delta_j^{l,k} \\
+ \end{pmatrix} 
+ \kern 30pt
+ A^{l-1} = 
+ \begin{pmatrix}
+    \textcolor{OliveGreen}{a_0^{l-1,0}} & \textcolor{OliveGreen}{a_0^{l-1,1}} & ... & \textcolor{OliveGreen}{a_0^{l-1,k}} \\
+    \textcolor{Cyan}{a_1^{l-1,0}} & \textcolor{Cyan}{a_1^{l-1,1}} & \textcolor{Cyan}{...} & \textcolor{Cyan}{a_1^{l-1,k}} \\
+    ... & ... & ... & ... \\
+    a_j^{l-1,0} & a_j^{l-1,1} & ... & a_j^{l-1,k} \\
+ \end{pmatrix} \]
+
+\[ W^l = \begin{pmatrix}
+    \textcolor{red}{w_{0,0}^l} & \textcolor{Plum}{w_{1,0}^l} & ... & w_{j,0}^l \\
+    w_{0,1}^l & w_{1,1}^l & ... & w_{j,1}^l \\
+    ... & ... & ... & ... \\
+    w_{0,i}^l & w_{1,i}^l & ... & w_{j,i}^l
+\end{pmatrix} \]
+
+
+
+ \[ \frac{\partial E^k}{\partial w_{j,i}^{l,k}} = \delta_i^{l,k} \cdot a_j^{l-1,k} \]
+
+ \[ \textcolor{red}{\frac{\partial E}{\partial w_{0,0}^l}} = 
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{OliveGreen}{a_0^{l-1,k}} \]
+
+  \[ \textcolor{Plum}{\frac{\partial E}{\partial w_{1,0}^l}} = 
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{Cyan}{a_1^{l-1,k}} \]
+
+\[ \Rightarrow \frac{\partial E}{W^l} = [\delta^l] \cdot (A^{l-1})^T \]
+
+
+\section{Quellen}
+\href{http://neuralnetworksanddeeplearning.com}{Michael Nielsen - Neural Networks and Deep Learning}(Algorithmus) \linebreak
+\href{https://michaelkipp.de/deeplearning}{Michael Kipp - Neurale Netze und Deep Learning} (Algorithmus) \linebreak
+\href{https://sudeepraja.github.io/Neural/}{Sudeep Raja - A Derivation of Backpropagation in Matrix Form} (Prüfen der Matrizenformeln)
 
 \end{document}
