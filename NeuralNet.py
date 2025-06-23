@@ -65,20 +65,3 @@ class NeuralNetwork:
         for i in range(0, len(self.layer_count) - 1):
             print(self.biases[i])
             print(self.weights[i])
-        
-        
-
-
-
-
-
-def main():
-    nn = NeuralNetwork([1, 2, 1])
-    
-
-
- 
-
-
-if __name__ == "__main__":
-    main()

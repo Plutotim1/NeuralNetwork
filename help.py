@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def sigmoid(input):
     return 1 / (1 + np.exp(-input))
 
@@ -13,5 +14,8 @@ def list_to_vector(l):
 def cost(result: list, desired_output: list):
         cost = 0
         for i in range(0, len(result)):
-            cost += (result[i] - desired_output[0])**2
+            cost += 0.5 * (result[i] - desired_output[i])**2
         return cost
+
+def signed_random():
+      return (np.random.rand() - 0.5) * 2

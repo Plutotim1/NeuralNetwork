@@ -1,9 +1,7 @@
 import random
 
 class Data:
-    def __init__(self, input, desired_output, input_shape = [1], output_shape = [1]):
-        self.input_shape = input_shape
-        self.putput_shape = output_shape
+    def __init__(self, input, desired_output):
         self.testing_data = [(input[i], desired_output[i]) for i in range(0, int(len(input) / 2))]
         self.training_data = [(input[i], desired_output[i]) for i in range(int(len(input) / 2), len(input))]
     
@@ -21,10 +19,11 @@ class Data:
 
 
 
-def bigger_than_data(size, num):
+def bigger_than_data(size):
     data = [[],[]]
     for i in range(0, size):
         n = random.random()
-        data[0].append(n)
-        data[1].append(1 if n > num else 0)
-    return  data
+        m = random.random()
+        data[0].append((n, m))
+        data[1].append(1 if n > m else 0)
+    return data
