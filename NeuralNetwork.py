@@ -15,7 +15,7 @@ class NeuralNetwork:
             ] for l in range(len(layers) - 1)
 
         ]
-        
+
         self.biases = [
             [
                 numpy.matrix([
@@ -26,7 +26,12 @@ class NeuralNetwork:
             ] for l in range(len(layers) - 1)
         ]
 
-
         self.data = data
+
+    
+    def train(self, batch_size = 10):
+        batches = self.data.get_batches(batch_size)
+        
+
 
 
