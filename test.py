@@ -10,9 +10,15 @@ def matrix_dimension():
     print(result)
 
 
-def weight_length():
+def weights():
     d = data.bigger_than_data(10)
-    nn = NeuralNetwork.NeuralNetwork([5,2,89,2], data.Data(d[0],d[1]))
+    nn = NeuralNetwork.NeuralNetwork([5,2,9,2], data.Data(d[0],d[1]))
+    for i in range(3):
+        print(i, ":")
+        print(nn.biases[i])
+        print(nn.weights[i])
 
 
-weight_length()
+weights()
+
+
