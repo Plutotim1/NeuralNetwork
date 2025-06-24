@@ -129,7 +129,19 @@ class NeuralNetwork:
             print(error_matrix)
             error_matrizes.insert(0, error_matrix)
 
-        #adapting weights
+        #adapting biases and weights
+        for i in range(self.layer_count - 1):
+            #biases
+            vector1 = numpy.matrix([
+                [1] for i in range(self.layers[i])
+            ])
+            average_bias_gradient = numpy.matmul(error_matrizes[i + 1], vector1)
+            self.biases[i] -= average_bias_gradient * (learning_rate / batch_size)
+
+            #weights
+            average_weight_gradient = numpy.matmul(error_matrizes[i + 1], z_matrizes)
+
+
 
         
 

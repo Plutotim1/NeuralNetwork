@@ -340,12 +340,12 @@ Erklärung Matrix $+$ vektor
     \delta_j^{l,0} & \delta_j^{l,1} & ... & \delta_j^{l,k} \\
  \end{pmatrix} 
  \kern 30pt
- A^{l-1} = 
+ Z^{l-1} = 
  \begin{pmatrix}
-    \textcolor{OliveGreen}{a_0^{l-1,0}} & \textcolor{OliveGreen}{a_0^{l-1,1}} & ... & \textcolor{OliveGreen}{a_0^{l-1,k}} \\
-    \textcolor{Cyan}{a_1^{l-1,0}} & \textcolor{Cyan}{a_1^{l-1,1}} & \textcolor{Cyan}{...} & \textcolor{Cyan}{a_1^{l-1,k}} \\
+    \textcolor{OliveGreen}{z_0^{l-1,0}} & \textcolor{OliveGreen}{z_0^{l-1,1}} & ... & \textcolor{OliveGreen}{z_0^{l-1,k}} \\
+    \textcolor{Cyan}{z_1^{l-1,0}} & \textcolor{Cyan}{z_1^{l-1,1}} & \textcolor{Cyan}{...} & \textcolor{Cyan}{z_1^{l-1,k}} \\
     ... & ... & ... & ... \\
-    a_j^{l-1,0} & a_j^{l-1,1} & ... & a_j^{l-1,k} \\
+    z_j^{l-1,0} & z_j^{l-1,1} & ... & z_j^{l-1,k} \\
  \end{pmatrix} \]
 
 \[ W^l = \begin{pmatrix}
@@ -357,13 +357,13 @@ Erklärung Matrix $+$ vektor
 
 
 
- \[ \frac{\partial E^k}{\partial w_{j,i}^{l,k}} = \delta_i^{l,k} \cdot a_j^{l-1,k} \]
+ \[ \frac{\partial E^k}{\partial w_{j,i}^{l,k}} = \delta_i^{l,k} \cdot z_j^{l-1,k} \]
 
  \[ \textcolor{red}{\frac{\partial E}{\partial w_{0,0}^l}} = 
- \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{OliveGreen}{a_0^{l-1,k}} \]
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{OliveGreen}{z_0^{l-1,k}} \]
 
   \[ \textcolor{Plum}{\frac{\partial E}{\partial w_{1,0}^l}} = 
- \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{Cyan}{a_1^{l-1,k}} \]
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{Cyan}{z_1^{l-1,k}} \]
 
 \[ \Rightarrow \frac{\partial E}{W^l} = [\delta^l] \cdot (A^{l-1})^T \]
 
