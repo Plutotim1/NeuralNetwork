@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1748886444.64964 "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" "Arbeit.pdf" "Arbeit" 1748886445.37487 0
+["pdflatex"] 1750787474.83103 "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" "Arbeit.pdf" "Arbeit" 1750787475.48355 0
   "/etc/texmf/web2c/texmf.cnf" 1743440954.67581 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" 1748886444.55285 13362 88c944c9a6610da916e1e6731e8a8f85 ""
+  "/home/tim/Documents/code/NeuralNetwork/Arbeit.tex" 1750787474.73109 13362 62807505e6940f96eab6eaf1d1a32b2e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -195,9 +195,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743441093.4405 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743445835 7277396 277211c3de79cc1d3a1b81fe72cca3d4 ""
-  "Arbeit.aux" 1748886445.32284 2470 f4df07ea4700b062967222d3cd58abff "pdflatex"
-  "Arbeit.out" 1748886445.32284 2849 ff651e3b7cfbb50ec2d55e98ccab56c6 "pdflatex"
-  "Arbeit.tex" 1748886444.55285 13362 88c944c9a6610da916e1e6731e8a8f85 ""
+  "Arbeit.aux" 1750787475.43209 2470 f4df07ea4700b062967222d3cd58abff "pdflatex"
+  "Arbeit.out" 1750787475.43309 2849 ff651e3b7cfbb50ec2d55e98ccab56c6 "pdflatex"
+  "Arbeit.tex" 1750787474.73109 13362 62807505e6940f96eab6eaf1d1a32b2e ""
   (generated)
   "Arbeit.aux"
   "Arbeit.log"

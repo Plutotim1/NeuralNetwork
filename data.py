@@ -24,6 +24,6 @@ def bigger_than_data(size):
     for i in range(0, size):
         n = random.random()
         m = random.random()
-        data[0].append((n, m))
-        data[1].append(1 if n > m else 0)
+        data[0].append([n, m])
+        data[1].append([1] if n > m else [0])
     return data

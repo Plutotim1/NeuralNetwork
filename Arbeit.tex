@@ -100,7 +100,7 @@ W^l = \begin{pmatrix}
     w_{0,i}^l & w_{1,i}^l & ... & w_{j,i}^l
 \end{pmatrix} \]
 
-\[ \vec{a}^l = \vec{z}^{l-1} \cdot W^l + \vec{b}^l \]
+\[ \vec{a}^l = W^l \cdot \vec{z}^{l-1} + \vec{b}^l \]
 
 \[ 
 \left(\begin{array}{c} a_0^l \\ a_1^l \\ ... \\ a_j^l \end{array}\right)
@@ -220,7 +220,7 @@ Allgemein:
 
 
 \subsubsection{Fehler des letzten Layers}
-\[ \delta_j^L = (a_j^L - y_j) \cdot \sigma^{\prime} (z_j^L)  \]
+\[ \delta_j^L = (z_j^L - y_j) \cdot \sigma^{\prime} (a_j^L)  \]
 
 \[ \vec{\delta^L} = \left( \begin{array}{c}
      \delta_0^L \\ \delta_1^L \\ ... \\ \delta_j^L 
@@ -239,7 +239,7 @@ Allgemein:
 \end{array} \right) 
 \]
 
-\[ \vec{\delta^L} = (\vec{a^L} - \vec{y^L}) \odot \sigma^{\prime}(\vec{z^L}) \]
+\[ \vec{\delta^L} = (\vec{z^L} - \vec{y^L}) \odot \sigma^{\prime}(\vec{a^L}) \]
 
 
 \subsubsection{Definition $\odot$}
@@ -276,7 +276,7 @@ Allgemein:
     ... & ... & ... & ... \\
     w_{j,0}^{l+1} & w_{j,1}^{l+1} & ... & w_{j,i}^{l+1} 
 \end{pmatrix} \]
-\[ \Rightarrow \vec{\delta^l} = \vec{\delta^{l+1}} \cdot {(W^{l+1})}^T \odot \sigma^{\prime}(\vec{z^l}) \]
+\[ \Rightarrow \vec{\delta^l} = {(W^{l+1})}^T \cdot \vec{\delta^{l+1}} \odot \sigma^{\prime}(\vec{z^l}) \]
 
 
  \subsection{Feed-Forward Berechnung als Matriz}
@@ -291,7 +291,7 @@ Allgemein:
 
 
 
- \[ A^l = \sigma (A^{[l-1]} \cdot W^l + \vec{b^l}) \]
+ \[ A^l = \sigma (W^l \cdot A^{[l-1]} + \vec{b^l}) \]
 
 Erklärung Matrix $+$ vektor
  \[ \begin{pmatrix}
@@ -321,8 +321,8 @@ Erklärung Matrix $+$ vektor
     \delta_j^{l,0} & \delta_j^{l,1} & ... & \delta_j^{l,k} \\
  \end{pmatrix} \]
 
-  \[ [\delta^L] = (A^L - Y^L) \odot \sigma^{\prime}(Z^L) \]
- \[ [\delta^l] = (W^{l+1})^T \cdot [\delta^{l+1}] \odot \sigma^{\prime}(Z^L) \]
+  \[ [\delta^L] = (Z^L - Y^L) \odot \sigma^{\prime}(A^L) \]
+ \[ [\delta^l] = (W^{l+1})^T \cdot [\delta^{l+1}] \odot \sigma^{\prime}(A^l) \]
 
  \[ \Rightarrow  \frac{\partial E}{B^l} = [\delta^l]\]
 
