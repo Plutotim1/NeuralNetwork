@@ -19,3 +19,13 @@ def cost(result: list, desired_output: list):
 
 def signed_random():
       return (np.random.rand() - 0.5) * 2
+
+
+def value_to_color(val):
+      int_value = int(sigmoid(val) * 255)
+      return (int_value, 0, 255 - int_value)
+
+def accuracy_to_color(val):
+      int_value = int(sigmoid(val) * 255)
+      print (int_value, 0, 255 - int_value)
+      return (255 - int_value, int_value, 0)

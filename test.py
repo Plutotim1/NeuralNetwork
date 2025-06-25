@@ -67,8 +67,23 @@ def train_batch():
     nn.train_batch(batches[0], 1)
 
 
+def train():
+    d = data.bigger_than_data(1000000)
+    nn = NeuralNetwork.NeuralNetwork([2,1], data.Data(d[0],d[1], 0.1))
+    nn.train(10, 1)
+
+
+def train_visual():
+    d = data.bigger_than_data(200)
+    nn = NeuralNetwork.NeuralNetwork([2,1], data.Data(d[0],d[1], 0.1))
+    nn.train_visual(10, 1)
+
+
 #matrix_dimension()
 #test_average_accuracy()
-train_batch()
+#train_batch()
 #sigmoid()
+#train()
+train_visual()
+
 

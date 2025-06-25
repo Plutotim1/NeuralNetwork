@@ -1,9 +1,9 @@
 import random
 
 class Data:
-    def __init__(self, input, desired_output):
-        self.testing_data = [(input[i], desired_output[i]) for i in range(0, int(len(input) / 2))]
-        self.training_data = [(input[i], desired_output[i]) for i in range(int(len(input) / 2), len(input))]
+    def __init__(self, input, desired_output, test_ratio = 0.5):
+        self.testing_data = [(input[i], desired_output[i]) for i in range(0, int(len(input) * test_ratio))]
+        self.training_data = [(input[i], desired_output[i]) for i in range(int(len(input) * test_ratio), len(input))]
     
 
     def get_batches(self, batch_size):
