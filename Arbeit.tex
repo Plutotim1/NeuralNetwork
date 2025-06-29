@@ -178,44 +178,55 @@ $\eta$ = Lernrate \kern 20pt $N$ = Anzahl der Trainingsbeispiele \kern 20pt $k$ 
 \end{tikzpicture}
 }
 
+\pagebreak
+
 
 \subsection{Fehler($\delta$)}
--Zwischenwert zur leichteren Berechnung des Gradienten
+\begin{flushleft}
+Der sogenannte Fehler ist eine neue variable die zur berechnung der Änderungsraten der Gewichte und "Biases" benutzt wird.
+Der Fehlerterm berechnet jeweils die partielle Ableitung der Kostenfunktion $E$ nach einem Rohinput $z$. Es gibt deshalb
+für jeden Rohinput einen Fehlerwert.
+\end{flushleft}
 \[ \delta_j^l = \frac{\partial E}{\partial z_j^l} 
-\kern 40pt
+\kern 50pt
  \frac{\partial E}{\partial w_{j,i}^l} = \delta_i^l \cdot a_j^{l-1}
-\kern 40pt
+\kern 50pt
 \frac{\partial E}{\partial b_j^l} = \delta_j^l \]
-
-Berechnung des Fehlers des letzten Layers durch Anwendung der Kettenregel:
+\begin{flushleft}
+Bei der Berechnung der Fehler wird zunächst die letzte Schicht berechnet und dann rekursiv die anderen Schichten.
+Für die Fehler der letzen Schicht ergibt sich durch die Kettenregel die folgende Formel:
+\end{flushleft}
 \[ \delta_j^L  = \frac{\partial E}{\partial z_j^L}
 = \frac{\partial E}{\partial a_j^L} \cdot \frac{\partial a_j^L}{\partial z_j^L}\]
-Einsetzen der Ableitungen:
-\[ = \frac{\partial E}{\partial a_j^L} \cdot \sigma (z_j^L) \cdot (1 - \sigma (z_j^L)) \]
+\begin{flushleft}
+Nach dem Einsetzen der Ableitungen:
+\end{flushleft}
 \[ = (a_j^L - y_j) \cdot \sigma (z_j^L) \cdot (1 - \sigma (z_j^L)) \]
-
-Berechnung des Fehlers des vorletzten Layers:
-
-\[ \delta_j^{L-1}  = \frac{\partial E}{\partial z_j^{L-1}} 
-= \textcolor{OliveGreen}{\frac{\partial E}{\partial a_j^{L-1}}} \cdot \textcolor{blue}{\frac{\partial a_j^{L-1}}{\partial z_j^{L-1}}} \]
-
-\[ \textcolor{blue}{\frac{\partial a_j^{L-1}}{\partial z_j^{L-1}} = \sigma^{\prime}(z_j^{L-1})} \]
-
-\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} = \sum_{i 
-= 0}^{n^L} \frac{\partial E}{\partial z_i^L} \cdot \frac{\partial z_i^L}{\partial a_j^{L-1}} }
-= \sum_{i = 0}^{n^L} \delta_i^L \cdot \textcolor{red}{ \frac{\partial z_i^L}{\partial a_j^{L-1}} } \]
-
-\[ \textcolor{red}{ \frac{\partial z_i^L}{\partial a_j^{L-1}}
-= \frac{\partial}{\partial a_j^{L-1}} (\sum_{p = 0}^{n^L} a_p^{L-1} \cdot w_{p,i}^L + b_p^L) = w_{j, i}^L } \]
-
-\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{L-1}} } = \sum_{i = 0}^{n^L} \delta_i^L \cdot \textcolor{red}{ w_{j,i}^L } \]
-
-Zusammenführen der Einzelergebnisse:
-\[ \delta_j^{L-1} = \textcolor{OliveGreen}{[\sum_{i = 0}^{n^{L}} \delta_i^{L} \cdot w_{j,i}^{L} }] \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{L-1}) } \]
-Allgemein:
-\[ \delta_j^{l} = \textcolor{OliveGreen}{ [\sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot w_{j,i}^{l+1}] } \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
-
-
+\begin{flushleft}
+Die Formel für den Fehler der restlichen Schichten kann auf zwei Teile aufgeteilt werden:
+\end{flushleft}
+\[ \delta_j^{l}  = \frac{\partial E}{\partial z_j^{l}} 
+= \textcolor{OliveGreen}{\frac{\partial E}{\partial a_j^{l}}} \cdot \textcolor{blue}{\frac{\partial a_j^{l}}{\partial z_j^{l}}} \]
+\begin{flushleft}
+    Die Ableitung der Aktivierung nach dem Rohinput entspricht einfach der Ableitung der Aktivierungsfunktion (hier sigmoid):
+\end{flushleft}
+\[ \textcolor{blue}{\frac{\partial a_j^{l}}{\partial z_j^{l}} = \sigma^{\prime}(z_j^{l})} \]
+\begin{flushleft}
+    Bei der Berechnung der Ableitung muss der jeweilige Einfluss auf die nachfolgenden Neuronen addiert werden:
+\end{flushleft}
+\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{l}}} = \sum_{i 
+= 0}^{n^{l+1}} \textcolor{Plum}{\frac{\partial E}{\partial z_i^{l+1}}} \cdot \textcolor{red}{\frac{\partial z_i^{l+1}}{\partial a_j^{l}}} 
+= \sum_{i = 0}^{n^{l+1}} \textcolor{Plum}{\delta_i^{l+1}} \cdot \textcolor{red}{ \frac{\partial z_i^{l+1}}{\partial a_j^{l}} } \]
+\[ \textcolor{red}{ \frac{\partial z_i^{l+1}}{\partial a_j^{l}}
+= \frac{\partial}{\partial a_j^{l}} (\sum_{p = 0}^{n^{l+1}} a_p^{l} \cdot w_{p,i}^{l+1} + b_p^{l+1}) = w_{j, i}^{l+1} } \]
+\begin{flushleft}
+    Die Ableitung der Summe besteht hier aus einem einzigen Gewicht, da die Ableitung $0$ ergibt wenn p $\neq$ j
+\end{flushleft}
+\[ \textcolor{OliveGreen}{ \frac{\partial E}{\partial a_j^{l}} } = \sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot \textcolor{red}{ w_{j,i}^{l+1} } \]
+\begin{flushleft}
+    Nach dem Zusammenführen der Einzelergebnisse ergibt sich die folgende Formel für die Berechnung der Fehlerterme der restlichen Schichten:
+\end{flushleft}
+\[ \delta_j^{l} = \textcolor{OliveGreen}{[\sum_{i = 0}^{n^{l+1}} \delta_i^{l+1} \cdot w_{j,i}^{l+1} }] \cdot \textcolor{blue}{ \sigma^{\prime}(z_j^{l}) } \]
 \subsection{Berechnung des Fehlers als vektor}
 
 

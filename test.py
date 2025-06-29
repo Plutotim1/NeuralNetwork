@@ -13,7 +13,7 @@ def matrix_dimension():
     result2 = m1 + v2
     #print(result)
     #print(result2)
-    print(1 - m1)
+    #print(1 - m1)
 
 
 def sigmoid():
@@ -74,9 +74,25 @@ def train():
 
 
 def train_visual():
-    d = data.bigger_than_data(200)
-    nn = NeuralNetwork.NeuralNetwork([2,1], data.Data(d[0],d[1], 0.1))
-    nn.train_visual(10, 1)
+    d = data.bigger_than_data(2000)
+    nn = NeuralNetwork.NeuralNetwork([2,1], data.Data(d[0],d[1], 0.05))
+    nn.train_visual(10, 0.5)
+
+def train_any_visual():
+    d = data.bigger_than_data(1000)
+    nn = NeuralNetwork.NeuralNetwork([2, 1], data.Data(d[0],d[1], 0.05))
+    nn.train_any_visual(10, 0.5, 1, 10000)
+
+
+def train_visual_seeds():
+    d = data.seed_data()
+    nn = NeuralNetwork.NeuralNetwork([7, 7, 3], data.Data(d[0], d[1], 0.1))
+    nn.train_any_visual(5, 10, 100, 2)
+
+def train_seeds():
+    d = data.seed_data()
+    nn = NeuralNetwork.NeuralNetwork([7, 7, 7, 3], data.Data(d[0], d[1], 0.1))
+    nn.train(5, 5, 1000)
 
 
 #matrix_dimension()
@@ -84,6 +100,10 @@ def train_visual():
 #train_batch()
 #sigmoid()
 #train()
-train_visual()
+#train_visual()
+train_any_visual()
+#data.seed_data()
+#train_visual_seeds()
+#train_seeds()
 
 

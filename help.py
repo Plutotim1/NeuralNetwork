@@ -18,7 +18,7 @@ def cost(result: list, desired_output: list):
         return cost
 
 def signed_random():
-      return (np.random.rand() - 0.5) * 2
+      return ((np.random.rand() - 0.5) * 2) / 1
 
 
 def value_to_color(val):

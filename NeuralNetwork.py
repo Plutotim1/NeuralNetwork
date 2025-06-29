@@ -89,7 +89,6 @@ class NeuralNetwork:
                 ] for i in range(self.layers[-1])
             ]
         )
-        #print(desired_output)
 
         #Feed Forward
         z_matrizes = []
@@ -100,11 +99,6 @@ class NeuralNetwork:
                 ] for i in range(self.layers[0])
             ]
         )
-        """
-        print(batch)
-        print("---------------------------------------------------")
-        print(input_matrix)
-        """
 
         z_matrizes.append(input_matrix)
 
@@ -121,14 +115,12 @@ class NeuralNetwork:
         #Last Error
         sigmoid_derivative = numpy.multiply(z_matrizes[-1], 1 - z_matrizes[-1])
         last_error = numpy.multiply((z_matrizes[-1] - desired_output), sigmoid_derivative)
-        #print(last_error)
         error_matrizes.insert(0, last_error)
 
         #Remaining Errors
         for i in range(self.layer_count - 2, -1, -1):
             sigmoid_derivative = numpy.multiply(z_matrizes[i], 1 - z_matrizes[i])
             error_matrix = numpy.multiply(numpy.matmul(self.weights[i].T, error_matrizes[0]), sigmoid_derivative)
-            #print(error_matrix)
             error_matrizes.insert(0, error_matrix)
 
         #adapting biases and weights
@@ -151,21 +143,22 @@ class NeuralNetwork:
         
 
 
-    def train(self, batch_size = 10, learning_rate = 1):
+    def train(self, batch_size = 10, learning_rate = 1, epochs = 1):
         batches = self.data.get_batches(batch_size)
         print("initial accuraccy:")
-        #print(self.test_cost())
         print(self.test_accuracy())
-        for batch in batches:
-            self.train_batch(batch, learning_rate)
-            #print("new_accuracy:")
-            #print(self.test_cost())
-            #print(self.test_accuracy())
+        print("cost:")
+        print(self.test_cost())
+        for e in range(epochs):
+            for batch in batches:
+                self.train_batch(batch, learning_rate)
+                #print("new_accuracy:")
+                #print(self.test_cost())
+                #print(self.test_accuracy())
         print("final accuracy:")
-        #print(self.test_cost())
-        print(self.weights[0])
-        print(self.biases[0])
         print(self.test_accuracy())
+        print("cost:")
+        print(self.test_cost())
 
 
     #only for a 2-1 Network
@@ -176,6 +169,8 @@ class NeuralNetwork:
         size = (1000,600)
         white = 255, 255, 255
         gray = 100, 100, 100
+        iterations = self.data.size / batch_size
+        duration = 10000
         quit = False
         
 
@@ -185,6 +180,7 @@ class NeuralNetwork:
         print(self.test_accuracy())
 
         screen = pygame.display.set_mode(size)
+        next = False
         for batch in batches:
             screen.fill(white)
             
@@ -208,16 +204,15 @@ class NeuralNetwork:
             pygame.draw.rect(screen, (0, 0, 0), (100 + int(ac * 800), 45, 10, 10))
 
             pygame.display.flip()
-            pygame.time.delay(500)
+            pygame.time.delay(int(duration / iterations))
 
-            """
             while True:
-                next = False
+                
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT: sys.exit()
                     elif event.type == pygame.MOUSEBUTTONDOWN: next = True
                 if (next): break
-            """
+            
 
         
         print("training finished")
@@ -225,6 +220,92 @@ class NeuralNetwork:
         
         print("final accuracy:")
         print(self.test_accuracy())
+
+
+        while True:
+                next = False
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT: sys.exit()
+
+
+    #for any dimension
+    def train_any_visual(self, batch_size = 10, learning_rate = 1, epochs = 1, duration = 5000):
+
+        #graphics
+        pygame.init()
+        size = (2000,1200)
+        white = 255, 255, 255
+        gray = 100, 100, 100
+        iterations = self.data.size / (batch_size * epochs)
+        quit = False
+        
+
+
+        batches = self.data.get_batches(batch_size)
+        print("initial accuraccy:")
+        print(self.test_accuracy())
+        print("cost:")
+        print(self.test_cost())
+
+        screen = pygame.display.set_mode(size)
+        next = False
+        for e in range(epochs):
+            #print("epoch:", e)
+            for batch in batches:
+                screen.fill(white)
+            
+                self.train_batch(batch, learning_rate)
+
+                #draw nodes and biases
+                x_dist = size[0] / (self.layer_count + 1)
+                for i in range(self.layer_count):
+                    y_dist = (size[1] - 200) / (self.layers[i] + 1)
+                    if (i != 0):
+                        b = self.biases[i - 1].flat
+                    for j in range(self.layers[i]):
+                        pygame.draw.circle(screen, gray, (x_dist * (i + 1), ((j + 1) * y_dist) + 200), 40)
+                        if (i != 0):
+                            pygame.draw.circle(screen, help.value_to_color(b[j]), (x_dist * (i + 1), ((j + 1) * y_dist) + 200), 30)
+
+                    if (i == 0):
+                        continue
+                    #draw weights
+                    w = self.weights[i - 1]
+                    for start in range(self.layers[i - 1]):
+                        for end in range(self.layers[i]):
+                            start_p = (x_dist * (i), ((start + 1) * ((size[1] - 200) / (self.layers[i - 1] + 1))) + 200)
+                            end_p = (x_dist * (i + 1), ((end + 1) * y_dist) + 200)
+                            #print(start, end)
+                            #print(type(w[start,end]))
+                            #print(w[start,end])
+                            pygame.draw.line(screen, help.value_to_color(w[end,start]), start_p, end_p, 6)
+
+                #show accuracy
+                ac = self.test_accuracy()
+            
+                pygame.draw.line(screen, (0, 0, 0), (200, 100), (size[0] - 200, 100), 5)
+                pygame.draw.rect(screen, (0, 0, 0), (200 + int(ac * (size[0] - 400)), 95, 10, 10))
+
+                pygame.display.flip()
+                pygame.time.delay(int(duration / iterations))
+
+                while True:
+                
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT: sys.exit()
+                        elif event.type == pygame.MOUSEBUTTONDOWN: next = True
+                    if (next): break
+            
+
+        
+        print("training finished")
+
+        
+        print("final accuracy:")
+        print(self.test_accuracy())
+        print("cost:")
+        print(self.test_cost())
+
 
         while True:
                 next = False

@@ -1,13 +1,15 @@
 import random
+import help
 
 class Data:
     def __init__(self, input, desired_output, test_ratio = 0.5):
+        self.size = len(input)
         self.testing_data = [(input[i], desired_output[i]) for i in range(0, int(len(input) * test_ratio))]
         self.training_data = [(input[i], desired_output[i]) for i in range(int(len(input) * test_ratio), len(input))]
     
 
     def get_batches(self, batch_size):
-        random.shuffle(self.testing_data)
+        random.shuffle(self.training_data)
         l = len(self.training_data)
         if(l < batch_size):
             return -1
@@ -26,4 +28,22 @@ def bigger_than_data(size):
         m = random.random()
         data[0].append([n, m])
         data[1].append([1] if n > m else [0])
+    return data
+
+
+def seed_data():
+    data = [[],[]]
+    with open("seeds.txt") as file:
+        for line in file:
+            d = line.split()
+            entry = []
+            for i in range(7):
+                entry.append(help.sigmoid(float(d[i])))
+            
+            output = [0, 0, 0]
+            output[int(d[7]) - 1] = 1
+
+            data[0].append(entry)
+            data[1].append(output)            
+    
     return data
