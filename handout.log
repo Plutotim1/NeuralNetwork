@@ -3,8 +3,8 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/tim/Documents/code/NeuralNetwork/Arbeit.tex
-(/home/tim/Documents/code/NeuralNetwork/Arbeit.tex
+**/home/tim/Documents/code/NeuralNetwork/handout.tex
+(/home/tim/Documents/code/NeuralNetwork/handout.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -460,8 +460,8 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 16.
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count313
 \l__pdf_internal_box=\box65
-) (./Arbeit.aux)
-\openout1 = `Arbeit.aux'.
+) (./handout.aux)
+\openout1 = `handout.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
@@ -505,84 +505,43 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
  on input line 19.
 
 Package hyperref Info: Link coloring ON on input line 19.
-(./Arbeit.out) (./Arbeit.out)
+(./handout.out) (./handout.out)
 \@outlinefile=\write4
-\openout4 = `Arbeit.out'.
+\openout4 = `handout.out'.
 
-
-Overfull \hbox (85.26445pt too wide) in paragraph at lines 77--78
-[] 
- []
-
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (60.44785pt too wide) detected at line 103
-[] \OT1/cmr/m/n/10 = [] [] = [] [] = [] \OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = []
- []
-
-[2] [3] [4]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 188.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
-
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\odot' on input line 260.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
-
-[6]
-Overfull \hbox (20.86954pt too wide) detected at line 293
-\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] [][] = []
- []
-
-[7]
-Underfull \hbox (badness 5622) in paragraph at lines 384--387
+Underfull \hbox (badness 5622) in paragraph at lines 98--101
 [][]\OT1/cmr/m/n/10 Michael Nielsen - Neu-ral Net-works and Deep Learn-ing[][](Algorithmus)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--387
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
 [][]\OT1/cmr/m/n/10 Michael Kipp - Neu-rale Netze und Deep Learn-ing[][] (Al-go-rith-mus)
  []
 
-[8] (./Arbeit.aux)
+[2] (./handout.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `Arbeit.out' has not changed.
-(rerunfilecheck)             Checksum: FF651E3B7CFBB50EC2D55E98CCAB56C6;2849.
+Package rerunfilecheck Info: File `handout.out' has not changed.
+(rerunfilecheck)             Checksum: 1A62FBA5366FDA75473EA6062A90A497;1503.
  ) 
 Here is how much of TeX's memory you used:
- 30218 strings out of 476129
- 722037 string characters out of 5793186
- 1945975 words of memory out of 5000000
- 51763 multiletter control sequences out of 15000+600000
- 563452 words of font info for 55 fonts, out of 8000000 for 9000
+ 29551 strings out of 476129
+ 705227 string characters out of 5793186
+ 1939975 words of memory out of 5000000
+ 51119 multiletter control sequences out of 15000+600000
+ 559733 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 102i,11n,107p,762b,2150s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Arbeit.pdf (8 pages, 185163 bytes).
+ 102i,7n,107p,763b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on handout.pdf (2 pages, 122409 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

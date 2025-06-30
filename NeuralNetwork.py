@@ -236,7 +236,7 @@ class NeuralNetwork:
         size = (2000,1200)
         white = 255, 255, 255
         gray = 100, 100, 100
-        iterations = self.data.size / (batch_size * epochs)
+        iterations = self.data.size * epochs / (batch_size)
         quit = False
         
 
@@ -284,7 +284,13 @@ class NeuralNetwork:
                 ac = self.test_accuracy()
             
                 pygame.draw.line(screen, (0, 0, 0), (200, 100), (size[0] - 200, 100), 5)
-                pygame.draw.rect(screen, (0, 0, 0), (200 + int(ac * (size[0] - 400)), 95, 10, 10))
+                pygame.draw.rect(screen, (255, 0, 0), (200 + int(ac * (size[0] - 400)), 95, 10, 10))
+
+                #show cost
+                c = self.test_cost()
+            
+                pygame.draw.line(screen, (0, 0, 0), (200, 150), (size[0] - 200, 150), 5)
+                pygame.draw.rect(screen, (255, 0, 0), (200 + int(c * (size[0] - 400)), 145, 10, 10))
 
                 pygame.display.flip()
                 pygame.time.delay(int(duration / iterations))

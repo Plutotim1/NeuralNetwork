@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{Matrizen in Neuronalen Netzwerken}
+\title{Matrizen in Neuronalen Netzen}
 \author{Tim Zollner}
 \date{17.02.2025}
 \maketitle
@@ -80,9 +80,11 @@
 \subsection{Formeln}
 \[ z_0^1 = a_0^0 \cdot \textcolor{OliveGreen}{w_{0,0}} + a_1^0 \cdot \textcolor{OliveGreen}{w_{1,0}} + \textcolor{blue}{b^1} \]
 allgemein:
-\[  z_0^1 = \textcolor{blue}{b^1} + \sum_{j=0}^{n^1} a_j^0 \cdot \textcolor{OliveGreen}{w_{j,0}}  \]
-\[a_j^l = \sigma(z_j^l)\]
-\[\sigma(x) = \frac{1}{1 + e^{-x}}\]
+\[  z_0^1 = \textcolor{blue}{b^1} + \sum_{j=0}^{n^1} a_j^0 \cdot \textcolor{OliveGreen}{w_{j,0}}  
+\kern 40pt
+a_j^l = \sigma(z_j^l) 
+\kern 40pt
+\sigma(x) = \frac{1}{1 + e^{-x}}\]
 
 
 \pagebreak
@@ -105,14 +107,14 @@ W^l = \begin{pmatrix}
 \[ 
 \left(\begin{array}{c} a_0^l \\ a_1^l \\ ... \\ a_j^l \end{array}\right)
 =
-\left(\begin{array}{c} z_0^{l-1} \\ z_1^{l-1} \\ ... \\ z_j^{l-1} \end{array}\right)
-\cdot
 \begin{pmatrix}
     w_{0,0}^l & w_{1,0}^l & ... & w_{j,0}^l \\
     w_{0,1}^l & w_{1,1}^l & ... & w_{j,1}^l \\
     ... & ... & ... & ... \\
     w_{0,i}^l & w_{1,i}^l & ... & w_{j,i}^l
 \end{pmatrix}
+\cdot
+\left(\begin{array}{c} z_0^{l-1} \\ z_1^{l-1} \\ ... \\ z_j^{l-1} \end{array}\right)
 +
 \left(\begin{array}{c} b_0^l \\ b_1^l \\ ... \\ b_j^l \end{array}\right)
  \]
@@ -133,15 +135,17 @@ W^l = \begin{pmatrix}
 \newpage
 \section{Backpropagation}
 \subsection{Verlustfunktion}
-\[ E_j = \frac{1}{2}(y_j - a_j^L)^2 \]
-\[ E = \frac{1}{2}\sum_{j}^{} (y_j - a_j^L)^2 \]
+\[ E_j = \frac{1}{2}(y_j - a_j^L)^2 
+\kern 40pt
+ E = \frac{1}{2}\sum_{j}^{} (y_j - a_j^L)^2 \]
 \[ \frac{dE_j}{da_{j}^L}  = (a_j^L - y_j) \]
 
 
 \subsection{Lernvorgang}
 Anpassen der Gewichts- und BiasNeuronen:
 
-\[ w^l \rightarrow w^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial C^k}{\partial w^l} \]
+\[ w_{j,i}^l \rightarrow w_{j,i}^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial E^k}{\partial w_{j,i}^l} \]
+\[ b_j^l \rightarrow b_j^l - \frac{\eta}{N} \cdot \sum_{k = 0}^{N} \frac{\partial E^k}{\partial b_j^l} \]
 $\eta$ = Lernrate \kern 20pt $N$ = Anzahl der Trainingsbeispiele \kern 20pt $k$ = Trainingsbeispiel 
 
 
@@ -351,12 +355,12 @@ Erklärung Matrix $+$ vektor
     \delta_j^{l,0} & \delta_j^{l,1} & ... & \delta_j^{l,k} \\
  \end{pmatrix} 
  \kern 30pt
- Z^{l-1} = 
+ A^{l-1} = 
  \begin{pmatrix}
-    \textcolor{OliveGreen}{z_0^{l-1,0}} & \textcolor{OliveGreen}{z_0^{l-1,1}} & ... & \textcolor{OliveGreen}{z_0^{l-1,k}} \\
-    \textcolor{Cyan}{z_1^{l-1,0}} & \textcolor{Cyan}{z_1^{l-1,1}} & \textcolor{Cyan}{...} & \textcolor{Cyan}{z_1^{l-1,k}} \\
+    \textcolor{OliveGreen}{a_0^{l-1,0}} & \textcolor{OliveGreen}{a_0^{l-1,1}} & ... & \textcolor{OliveGreen}{a_0^{l-1,k}} \\
+    \textcolor{Cyan}{a_1^{l-1,0}} & \textcolor{Cyan}{a_1^{l-1,1}} & \textcolor{Cyan}{...} & \textcolor{Cyan}{a_1^{l-1,k}} \\
     ... & ... & ... & ... \\
-    z_j^{l-1,0} & z_j^{l-1,1} & ... & z_j^{l-1,k} \\
+    a_j^{l-1,0} & a_j^{l-1,1} & ... & a_j^{l-1,k} \\
  \end{pmatrix} \]
 
 \[ W^l = \begin{pmatrix}
@@ -368,20 +372,17 @@ Erklärung Matrix $+$ vektor
 
 
 
- \[ \frac{\partial E^k}{\partial w_{j,i}^{l,k}} = \delta_i^{l,k} \cdot z_j^{l-1,k} \]
-
+ \[ \frac{\partial E^k}{\partial w_{j,i}^{l}} = \delta_i^{l,k} \cdot z_j^{l-1,k} \]
  \[ \textcolor{red}{\frac{\partial E}{\partial w_{0,0}^l}} = 
- \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{OliveGreen}{z_0^{l-1,k}} \]
-
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{OliveGreen}{a_0^{l-1,k}} \]
   \[ \textcolor{Plum}{\frac{\partial E}{\partial w_{1,0}^l}} = 
- \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{Cyan}{z_1^{l-1,k}} \]
-
+ \sum_{k = 0}^{N} \textcolor{blue}{\delta_0^{l,k}} \cdot \textcolor{Cyan}{a_1^{l-1,k}} \]
 \[ \Rightarrow \frac{\partial E}{W^l} = [\delta^l] \cdot (A^{l-1})^T \]
 
 
 \section{Quellen}
 \href{http://neuralnetworksanddeeplearning.com}{Michael Nielsen - Neural Networks and Deep Learning}(Algorithmus) \linebreak
 \href{https://michaelkipp.de/deeplearning}{Michael Kipp - Neurale Netze und Deep Learning} (Algorithmus) \linebreak
-\href{https://sudeepraja.github.io/Neural/}{Sudeep Raja - A Derivation of Backpropagation in Matrix Form} (Prüfen der Matrizenformeln)
+\href{https://sudeepraja.github.io/Neural/}{Sudeep Raja - A Derivation of Backpropagation in Matrix Form} (Prüfen der Batch-weisen Berechnung)
 
 \end{document}

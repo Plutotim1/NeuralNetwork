@@ -79,7 +79,7 @@ def train_visual():
     nn.train_visual(10, 0.5)
 
 def train_any_visual():
-    d = data.bigger_than_data(1000)
+    d = data.bigger_than_data(10000)
     nn = NeuralNetwork.NeuralNetwork([2, 1], data.Data(d[0],d[1], 0.05))
     nn.train_any_visual(10, 0.5, 1, 10000)
 
@@ -87,12 +87,12 @@ def train_any_visual():
 def train_visual_seeds():
     d = data.seed_data()
     nn = NeuralNetwork.NeuralNetwork([7, 7, 3], data.Data(d[0], d[1], 0.1))
-    nn.train_any_visual(5, 10, 100, 2)
+    nn.train_any_visual(20, 1, 500, 1000)
 
 def train_seeds():
     d = data.seed_data()
     nn = NeuralNetwork.NeuralNetwork([7, 7, 7, 3], data.Data(d[0], d[1], 0.1))
-    nn.train(5, 5, 1000)
+    nn.train(5, 5, 5000)
 
 
 #matrix_dimension()
@@ -101,9 +101,9 @@ def train_seeds():
 #sigmoid()
 #train()
 #train_visual()
-train_any_visual()
+#train_any_visual()
 #data.seed_data()
 #train_visual_seeds()
-#train_seeds()
+train_seeds()
 
 
