@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.31)  30 JUN 2025 18:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.31)  28 AUG 2025 11:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -454,45 +454,67 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip53
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 16.
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count313
+\U@D=\dimen276
+\l@unhyphenated=\language10
+ (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count314
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4342.
+ (/usr/share/texlive/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2024/01/07 v24.1 Nil language
+\l@nil=\language11
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count313
+\l__color_backend_stack_int=\count315
 \l__pdf_internal_box=\box65
 ) (./Arbeit.aux)
 \openout1 = `Arbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen276
+\scratchcounter=\count316
+\scratchdimen=\dimen277
 \scratchbox=\box66
-\nofMPsegments=\count315
-\nofMParguments=\count316
+\nofMPsegments=\count317
+\nofMParguments=\count318
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen277
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
+\MPscratchCnt=\count319
+\MPscratchDim=\dimen278
+\MPnumerator=\count320
+\makeMPintoPDFobject=\count321
 \everyMPtoPDFconversion=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -502,87 +524,184 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 19.
+ on input line 21.
 
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 21.
 (./Arbeit.out) (./Arbeit.out)
 \@outlinefile=\write4
 \openout4 = `Arbeit.out'.
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
-Overfull \hbox (85.26445pt too wide) in paragraph at lines 77--78
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (11.44118pt too wide) in paragraph at lines 31--32
+[]\OT1/cmr/m/n/10 Neuronale Netze sind die Kerntechnologie f^^?ur \OT1/cmr/bx/n/10 Large Language Models (LLM)\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (48.63202pt too wide) in paragraph at lines 31--32
+\OT1/cmr/m/n/10 Anwendungen wie ChatGPT, Technologien aus der \OT1/cmr/bx/n/10 Bilderkennung \OT1/cmr/m/n/10 wie Gesichtserkennung
+ []
+
+
+Overfull \hbox (46.98116pt too wide) in paragraph at lines 31--32
+\OT1/cmr/m/n/10 Neuronale Netze und Deep Learning. TH Augsburg. [][]https://michaelkipp.de/deeplearning[][]) 
+ []
+
+
+Overfull \hbox (15.75061pt too wide) in paragraph at lines 33--38
+[]\OT1/cmr/m/n/10 Mithilfe von neuronalen Netzen kann aus einer beliebigen Anzahl an numerischen
+ []
+
+
+Overfull \hbox (8.97284pt too wide) in paragraph at lines 33--38
+\OT1/cmr/m/n/10 Eingabewerten (Inputs) ein Ergebnis, das ebenfalls aus beliebig vielen numerischen
+ []
+
+
+Overfull \hbox (7.61388pt too wide) in paragraph at lines 94--95
 [] 
  []
 
-[1
+[2]
+Overfull \hbox (11.70552pt too wide) in paragraph at lines 103--106
+\OT1/cmr/m/n/10 Die Roheingabe wir in die Aktivierungsfunktion $\OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ eingesetzt um die Aktivierung
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (60.44785pt too wide) detected at line 103
+
+Overfull \hbox (60.44785pt too wide) detected at line 124
 [] \OT1/cmr/m/n/10 = [] [] = [] [] = [] \OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = []
  []
 
-[2] [3] [4]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 188.
+[3]
+Overfull \hbox (1.97289pt too wide) in paragraph at lines 160--165
+\OT1/cmr/m/n/10 Um die Backpropagation durchf^^?uhren zu k^^?onnen braucht man zun^^?achst geeignete
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
+Overfull \hbox (0.15799pt too wide) in paragraph at lines 160--165
+\OT1/cmr/m/n/10 Trainingsdaten. Diese bestehen aus Inputdaten und einer gew^^?unschten Ausgabe.
+ []
+
+
+Overfull \hbox (0.83382pt too wide) in paragraph at lines 160--165
+\OT1/cmr/m/n/10 Diese gew^^?unschte Ausgabe wird mit der tats^^?achlichen Ausgabe der Feed-Forward
+ []
+
+
+Overfull \hbox (29.61177pt too wide) in paragraph at lines 160--165
+\OT1/cmr/m/n/10 das Wiederholen mit vielen verschiedenen Trainingsdaten kann eine Parameterbelegung
+ []
+
+
+Overfull \hbox (9.01437pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 Die Verlustfunktion gibt einen numerischen Wert ($\OML/cmm/m/it/10 E$\OT1/cmr/m/n/10 ) f^^?ur den Unterschied zwischen
+ []
+
+
+Overfull \hbox (26.22284pt too wide) in paragraph at lines 178--185
+\OT1/cmr/m/n/10 Verlustfunktion genauso viele Dimensionen wie Parameter hat, ist es unwahrscheinlich,
+ []
+
+
+Overfull \hbox (37.79523pt too wide) in paragraph at lines 178--185
+\OT1/cmr/m/n/10 dass man in einem hohen lokalen Minimum []steckenbleibt\ Dazu wird die Verlustfunktion
+ []
+
+
+Overfull \hbox (24.27838pt too wide) in paragraph at lines 178--185
+\OT1/cmr/m/n/10 werden Parameter die einen gr^^?o^^Yeren Einfluss auf den finalen Wert der Verlustfunktion
+ []
+
+
+Overfull \hbox (9.71352pt too wide) in paragraph at lines 178--185
+\OT1/cmr/m/n/10 haben st^^?arker ver^^?andert als andere. Die Lernrate bestimmt wie start die Parameter
+ []
+
+[4]
+Overfull \hbox (2.88956pt too wide) in paragraph at lines 193--194
+\OT1/cmr/m/n/10 Um nach den Parametern ableiten zu k^^?onnen muss auch die Aktivierungsfunktion
+ []
 
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
+(hyperref)                removing `math shift' on input line 230.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\odot' on input line 260.
+(hyperref)                removing `\delta' on input line 230.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
+(hyperref)                removing `math shift' on input line 230.
+
+
+Overfull \hbox (54.11191pt too wide) in paragraph at lines 278--280
+\OT1/cmr/m/n/10 Wie bei dem Feed-Forward Prozess, kann auch bei der Backpropagation Matrixmultiplikation
+ []
 
 [6]
-Overfull \hbox (20.86954pt too wide) detected at line 293
-\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] [][] = []
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 305.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\odot' on input line 305.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 305.
 
 [7]
-Underfull \hbox (badness 5622) in paragraph at lines 384--387
-[][]\OT1/cmr/m/n/10 Michael Nielsen - Neu-ral Net-works and Deep Learn-ing[][](Algorithmus)
+Overfull \hbox (99.40424pt too wide) detected at line 346
+\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] [][] = [] [] = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--387
-[][]\OT1/cmr/m/n/10 Michael Kipp - Neu-rale Netze und Deep Learn-ing[][] (Al-go-rith-mus)
+Overfull \hbox (10.05621pt too wide) in paragraph at lines 351--355
+\OT1/cmr/m/n/10 prozess weiter vereinfacht und durch optimierte Matrixmultiplikation beschleunigt. 
  []
 
-[8] (./Arbeit.aux)
+[8] [9]
+Underfull \hbox (badness 5622) in paragraph at lines 447--450
+[][]\OT1/cmr/m/n/10 Michael Nielsen - Neural Networks and Deep Learning[][](Algorithmus)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--450
+[][]\OT1/cmr/m/n/10 Michael Kipp - Neurale Netze und Deep Learning[][] (Algorithmus)
+ []
+
+[10] (./Arbeit.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `Arbeit.out' has not changed.
-(rerunfilecheck)             Checksum: FF651E3B7CFBB50EC2D55E98CCAB56C6;2849.
+(rerunfilecheck)             Checksum: 622C9F00A06B976121C9D66D8F7E3AAA;3180.
  ) 
 Here is how much of TeX's memory you used:
- 30218 strings out of 476129
- 722037 string characters out of 5793186
- 1945975 words of memory out of 5000000
- 51763 multiletter control sequences out of 15000+600000
- 563452 words of font info for 55 fonts, out of 8000000 for 9000
+ 31726 strings out of 476129
+ 745601 string characters out of 5793186
+ 1944975 words of memory out of 5000000
+ 53237 multiletter control sequences out of 15000+600000
+ 565932 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  102i,11n,107p,762b,2150s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Arbeit.pdf (8 pages, 185163 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Arbeit.pdf (10 pages, 200208 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 230 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
