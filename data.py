@@ -1,5 +1,6 @@
 import random
 import help
+import math
 
 class Data:
     def __init__(self, input, desired_output, test_ratio = 0.5):
@@ -46,4 +47,14 @@ def seed_data():
             data[0].append(entry)
             data[1].append(output)            
     
+    return data
+
+
+def circle_data(size):
+    data = [[],[]]
+    for i in range(0, size):
+        x= random.uniform(0,1)
+        y= random.uniform(0,1)
+        data[0].append([x, y])
+        data[1].append([[1] if ((x-0.5)**2 + (y-0.5)**2) < 0.16 else [0]])
     return data

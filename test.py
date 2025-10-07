@@ -94,6 +94,11 @@ def train_seeds():
     nn = NeuralNetwork.NeuralNetwork([7, 7, 7, 3], data.Data(d[0], d[1], 0.1))
     nn.train(5, 5, 5000)
 
+def test_circle_data():
+    d = data.circle_data(30)
+    for i in range(30):
+        print(d[0][i], d[1][i])
+
 
 #matrix_dimension()
 #test_average_accuracy()
@@ -104,6 +109,6 @@ def train_seeds():
 #train_any_visual()
 #data.seed_data()
 #train_visual_seeds()
-train_seeds()
-
+#train_seeds()
+test_circle_data()
 
